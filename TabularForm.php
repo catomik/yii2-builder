@@ -355,7 +355,7 @@ class TabularForm extends BaseForm
 
             } else {
                 $models = $this->dataProvider->getModels();
-                $settings['value'] = empty($models[$index][$attribute]) ? null : $models[$index][$attribute];
+                $settings['value'] = (!isset($models[$index][$attribute])) ? null : $models[$index][$attribute];
                 if ($type === self::INPUT_HIDDEN_STATIC) {
                     return $staticInput .
                     Html::hiddenInput("{$this->formName}[{$i}][{$attribute}]", $settings['value'], $options);
